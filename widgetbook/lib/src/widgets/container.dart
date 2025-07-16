@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamont_labs_flutter_ui/lamont_labs_flutter_ui.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:widgetbook_workspace/src/widgets/size_knobs.dart';
 
@@ -26,7 +27,16 @@ Widget buildGlassLLContainerUseCase(BuildContext context) {
         ),
       ),
       SizeKnobs(
-        child: LLContainer.glass(),
+        child: LLContainer.glass(
+          blur: context.knobs.list(
+            label: 'Blur Style',
+            options: [
+              LLBlurStyles.lightBlur,
+              LLBlurStyles.mediumBlur,
+              LLBlurStyles.heavyBlur,
+            ],
+          ),
+        ),
       ),
     ],
   );

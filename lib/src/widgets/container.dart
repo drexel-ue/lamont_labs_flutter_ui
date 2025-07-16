@@ -49,10 +49,10 @@ class LLContainer extends StatelessWidget {
       border: Border.all(
         color: LLColors.white,
         width: borderWidth,
-        strokeAlign: BorderSide.strokeAlignOutside,
+        strokeAlign: BorderSide.strokeAlignInside,
       ),
     );
-    const innerPadding = EdgeInsetsGeometry.all(2.0 * borderWidth);
+    const innerPadding = EdgeInsetsGeometry.all(3.0 * borderWidth);
     if (shouldBlur) {
       return Stack(
         fit: StackFit.passthrough,
@@ -62,9 +62,9 @@ class LLContainer extends StatelessWidget {
               decoration: decoration,
             ),
           ),
-          ClipRRect(
-            child: Padding(
-              padding: innerPadding,
+          Padding(
+            padding: innerPadding,
+            child: ClipRRect(
               child: BackdropFilter(
                 filter: blurStyle!,
                 child: ColoredBox(
