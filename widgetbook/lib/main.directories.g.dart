@@ -17,12 +17,18 @@ final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(
     name: 'widgets',
     children: [
-      _i1.WidgetbookLeafComponent(
+      _i1.WidgetbookComponent(
         name: 'LLContainer',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'Default',
-          builder: _i2.buildLLContainerUseCase,
-        ),
+        useCases: [
+          _i1.WidgetbookUseCase(
+            name: 'Default',
+            builder: _i2.buildLLContainerUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'Glass',
+            builder: _i2.buildGlassLLContainerUseCase,
+          ),
+        ],
       ),
     ],
   ),
