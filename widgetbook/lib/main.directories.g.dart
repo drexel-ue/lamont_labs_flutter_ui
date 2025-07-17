@@ -21,6 +21,10 @@ final directories = <_i1.WidgetbookNode>[
         name: 'LLContainer',
         useCases: [
           _i1.WidgetbookUseCase(
+            name: 'Adaptive',
+            builder: _i2.buildAdaptiveLLContainerUseCase,
+          ),
+          _i1.WidgetbookUseCase(
             name: 'Default',
             builder: _i2.buildLLContainerUseCase,
           ),

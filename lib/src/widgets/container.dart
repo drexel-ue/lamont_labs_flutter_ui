@@ -10,7 +10,8 @@ class LLContainer extends StatelessWidget {
     this.padding = emptyPadding,
     this.color = LLColors.black,
     this.child,
-  }) : shouldBlur = false,
+  }) : adaptive = false,
+       shouldBlur = false,
        blurStyle = null;
 
   LLContainer.glass({
@@ -19,12 +20,27 @@ class LLContainer extends StatelessWidget {
     Color? color,
     ImageFilter? blur,
     this.child,
-  }) : color = color ?? LLColors.black.withValues(alpha: 0.5),
+  }) : adaptive = false,
+       color = color ?? LLColors.black.withValues(alpha: 0.5),
        shouldBlur = true,
+       blurStyle = blur ?? LLBlurStyles.lightBlur;
+
+  LLContainer.adaptive({
+    super.key,
+    this.padding = emptyPadding,
+    Color? color,
+    ImageFilter? blur,
+    this.child,
+  }) : adaptive = true,
+       color = color ?? LLColors.black.withValues(alpha: 0.5),
+       shouldBlur = false,
        blurStyle = blur ?? LLBlurStyles.lightBlur;
 
   /// Internal padding from border to child.
   final EdgeInsets padding;
+
+  /// Should display galss on iOS and opaque on others automatically.
+  final bool adaptive;
 
   /// Should we blur at all?
   final bool shouldBlur;
@@ -53,7 +69,8 @@ class LLContainer extends StatelessWidget {
       ),
     );
     const innerPadding = EdgeInsetsGeometry.all(3.0 * borderWidth);
-    if (shouldBlur) {
+    final isApple = [TargetPlatform.iOS, TargetPlatform.macOS].contains(Theme.of(context).platform);
+    if (shouldBlur || (adaptive && isApple)) {
       return Stack(
         fit: StackFit.passthrough,
         children: [

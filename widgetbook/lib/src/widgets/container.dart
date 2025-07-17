@@ -41,3 +41,42 @@ Widget buildGlassLLContainerUseCase(BuildContext context) {
     ],
   );
 }
+
+@widgetbook.UseCase(name: 'Adaptive', type: LLContainer)
+Widget buildAdaptiveLLContainerUseCase(BuildContext context) {
+  return Stack(
+    children: [
+      Positioned.fill(
+        child: ColoredBox(
+          color: Colors.red,
+          child: Center(
+            child: Icon(
+              Icons.face,
+              size: 89,
+            ),
+          ),
+        ),
+      ),
+      SizeKnobs(
+        child: Theme(
+          data: Theme.of(context).copyWith(
+            platform: context.knobs.listOrNull(
+              label: 'Target Platform',
+              options: TargetPlatform.values,
+            ),
+          ),
+          child: LLContainer.adaptive(
+            blur: context.knobs.list(
+              label: 'Blur Style',
+              options: [
+                LLBlurStyles.lightBlur,
+                LLBlurStyles.mediumBlur,
+                LLBlurStyles.heavyBlur,
+              ],
+            ),
+          ),
+        ),
+      ),
+    ],
+  );
+}
