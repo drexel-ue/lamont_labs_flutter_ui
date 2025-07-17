@@ -5,7 +5,7 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:widgetbook_workspace/src/widgets/size_knobs.dart';
 
 @widgetbook.UseCase(name: 'Default', type: LLScrambleText)
-Widget buildLLContainerUseCase(BuildContext context) {
+Widget buildLLScramleTextUseCase(BuildContext context) {
   return SizeKnobs(
     child: LLScrambleText(
       context.knobs.string(
