@@ -23,4 +23,6 @@ class LLTheme {
       textTheme: textTheme,
     );
   }
+
+  static const defaultAnimationDuration = Duration(milliseconds: 250);
 }
