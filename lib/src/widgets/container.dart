@@ -72,14 +72,16 @@ class LLContainer extends StatelessWidget {
               child: child,
             ),
           ),
-          Padding(
-            padding: innerPadding,
-            child: ClipRRect(
-              child: BackdropFilter(
-                filter: blurStyle!,
-                child: ColoredBox(
-                  color: color.withValues(alpha: adaptive && isApple ? 0.5 : null),
-                  child: child,
+          _FadeInAnimation(
+            child: Padding(
+              padding: innerPadding,
+              child: ClipRRect(
+                child: BackdropFilter(
+                  filter: blurStyle!,
+                  child: ColoredBox(
+                    color: color.withValues(alpha: adaptive && isApple ? 0.5 : null),
+                    child: child,
+                  ),
                 ),
               ),
             ),
@@ -88,14 +90,60 @@ class LLContainer extends StatelessWidget {
       );
     }
     return LLProgressBorder(
-      child: Padding(
-        padding: innerPadding,
-        child: ColoredBox(
-          color: color,
-          child: paddedChild,
+      child: _FadeInAnimation(
+        child: Padding(
+          padding: innerPadding,
+          child: ColoredBox(
+            color: color,
+            child: paddedChild,
+          ),
         ),
       ),
     );
   }
 }
 
+class _FadeInAnimation extends StatefulWidget {
+  const _FadeInAnimation({required this.child});
+
+  final Widget child;
+
+  @override
+  State<_FadeInAnimation> createState() => _FadeInAnimationState();
+}
+
+class _FadeInAnimationState extends State<_FadeInAnimation> with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: LLTheme.defaultAnimationDuration * 3.0,
+    )..forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeTransition(
+      opacity: Tween<double>(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(
+          parent: _controller,
+          curve: Interval(
+            0.5,
+            1.0,
+            curve: Curves.easeInOut,
+          ),
+        ),
+      ),
+      child: widget.child,
+    );
+  }
+}
