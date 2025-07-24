@@ -21,6 +21,8 @@ class LLTheme {
         onSurface: LLColors.white,
       ),
       textTheme: textTheme,
+      canvasColor: LLColors.darkerMidGrey,
+      cardColor: LLColors.darkerMidGrey,
     );
   }
 

@@ -13,11 +13,10 @@ Widget buildLLContainerUseCase(BuildContext context) {
 
 @widgetbook.UseCase(name: 'Glass', type: LLContainer)
 Widget buildGlassLLContainerUseCase(BuildContext context) {
-  return Stack(
-    children: [
-      Positioned.fill(
-        child: ColoredBox(
-          color: Colors.red,
+  return SizeKnobs(
+    child: Stack(
+      children: [
+        Positioned.fill(
           child: Center(
             child: Icon(
               Icons.face,
@@ -25,20 +24,20 @@ Widget buildGlassLLContainerUseCase(BuildContext context) {
             ),
           ),
         ),
-      ),
-      SizeKnobs(
-        child: LLContainer.glass(
-          blur: context.knobs.list(
-            label: 'Blur Style',
-            options: [
-              LLBlurStyles.lightBlur,
-              LLBlurStyles.mediumBlur,
-              LLBlurStyles.heavyBlur,
-            ],
+        Positioned.fill(
+          child: LLContainer.glass(
+            blur: context.knobs.list(
+              label: 'Blur Style',
+              options: [
+                LLBlurStyles.lightBlur,
+                LLBlurStyles.mediumBlur,
+                LLBlurStyles.heavyBlur,
+              ],
+            ),
           ),
         ),
-      ),
-    ],
+      ],
+    ),
   );
 }
 
@@ -47,13 +46,10 @@ Widget buildAdaptiveLLContainerUseCase(BuildContext context) {
   return Stack(
     children: [
       Positioned.fill(
-        child: ColoredBox(
-          color: Colors.red,
-          child: Center(
-            child: Icon(
-              Icons.face,
-              size: 89,
-            ),
+        child: Center(
+          child: Icon(
+            Icons.face,
+            size: 89,
           ),
         ),
       ),
