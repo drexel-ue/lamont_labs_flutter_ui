@@ -13,8 +13,9 @@
 import 'package:widgetbook/widgetbook.dart' as _i1;
 import 'package:widgetbook_workspace/src/widgets/container.dart' as _i2;
 import 'package:widgetbook_workspace/src/widgets/countdown_timer.dart' as _i3;
-import 'package:widgetbook_workspace/src/widgets/progress_border.dart' as _i4;
-import 'package:widgetbook_workspace/src/widgets/scramble_text.dart' as _i5;
+import 'package:widgetbook_workspace/src/widgets/header.dart' as _i4;
+import 'package:widgetbook_workspace/src/widgets/progress_border.dart' as _i5;
+import 'package:widgetbook_workspace/src/widgets/scramble_text.dart' as _i6;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(
@@ -44,16 +45,23 @@ final directories = <_i1.WidgetbookNode>[
           builder: _i3.buildLLCountdownTimerUseCase,
         ),
       ),
+      _i1.WidgetbookLeafComponent(
+        name: 'LLHeader',
+        useCase: _i1.WidgetbookUseCase(
+          name: 'Default',
+          builder: _i4.buildLLHeaderUseCase,
+        ),
+      ),
       _i1.WidgetbookComponent(
         name: 'LLProgressBorder',
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'Default',
-            builder: _i4.buildLLProgressBorderUseCase,
+            builder: _i5.buildLLProgressBorderUseCase,
           ),
           _i1.WidgetbookUseCase(
             name: 'Static Progress',
-            builder: _i4.buildStaticLLProgressBorderUseCase,
+            builder: _i5.buildStaticLLProgressBorderUseCase,
           ),
         ],
       ),
@@ -61,7 +69,7 @@ final directories = <_i1.WidgetbookNode>[
         name: 'LLScrambleText',
         useCase: _i1.WidgetbookUseCase(
           name: 'Default',
-          builder: _i5.buildLLScramleTextUseCase,
+          builder: _i6.buildLLScramleTextUseCase,
         ),
       ),
     ],
