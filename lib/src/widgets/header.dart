@@ -8,6 +8,7 @@ class LLHeader extends StatelessWidget {
     required this.title,
     this.onBackButtonPressed,
     this.actions,
+    this.dividerPadding = emptyPadding,
   });
 
   static Widget sliver({
@@ -15,6 +16,7 @@ class LLHeader extends StatelessWidget {
     required Widget title,
     VoidCallback? onBackButtonPressed,
     List<Widget>? actions,
+    EdgeInsetsGeometry dividerPadding = emptyPadding,
   }) {
     return SliverToBoxAdapter(
       child: LLHeader(
@@ -29,6 +31,7 @@ class LLHeader extends StatelessWidget {
   final Widget title;
   final VoidCallback? onBackButtonPressed;
   final List<Widget>? actions;
+  final EdgeInsetsGeometry dividerPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +71,14 @@ class LLHeader extends StatelessWidget {
               horizontalMargin8,
               ...?actions,
             ],
+          ),
+        ),
+        Padding(
+          padding: dividerPadding,
+          child: Divider(
+            thickness: 1.5,
+            height: 1.5,
+            color: LLColors.white,
           ),
         ),
       ],
