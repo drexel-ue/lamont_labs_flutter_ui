@@ -45,12 +45,18 @@ final directories = <_i1.WidgetbookNode>[
           builder: _i3.buildLLCountdownTimerUseCase,
         ),
       ),
-      _i1.WidgetbookLeafComponent(
+      _i1.WidgetbookComponent(
         name: 'LLHeader',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'Default',
-          builder: _i4.buildLLHeaderUseCase,
-        ),
+        useCases: [
+          _i1.WidgetbookUseCase(
+            name: 'Default',
+            builder: _i4.buildLLHeaderUseCase,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'Sliver',
+            builder: _i4.buildSliverLLHeaderUseCase,
+          ),
+        ],
       ),
       _i1.WidgetbookComponent(
         name: 'LLProgressBorder',

@@ -11,6 +11,10 @@ class LLTheme {
     decorationColor: LLColors.white,
   );
 
+  static const iconTheme = IconThemeData(
+    color: LLColors.white,
+  );
+
   static ThemeData merge(BuildContext context) {
     final base = ThemeData.dark(useMaterial3: true);
     return base.copyWith(
