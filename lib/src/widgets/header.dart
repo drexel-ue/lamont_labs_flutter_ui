@@ -8,7 +8,7 @@ class LLHeader extends StatelessWidget {
     required this.title,
     this.onBackButtonPressed,
     this.actions,
-    this.withDivider = true,
+    this.withDivider = false,
     this.dividerPadding = emptyPadding,
   });
 
@@ -17,7 +17,7 @@ class LLHeader extends StatelessWidget {
     required Widget title,
     VoidCallback? onBackButtonPressed,
     List<Widget>? actions,
-    bool withDivider = true,
+    bool withDivider = false,
     EdgeInsetsGeometry dividerPadding = emptyPadding,
   }) {
     return SliverToBoxAdapter(
