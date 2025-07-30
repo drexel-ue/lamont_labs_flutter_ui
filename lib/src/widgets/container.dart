@@ -63,38 +63,42 @@ class LLContainer extends StatelessWidget {
     const innerPadding = EdgeInsetsGeometry.all(3.0 * borderWidth);
     final isApple = [TargetPlatform.iOS, TargetPlatform.macOS].contains(Theme.of(context).platform);
     if (shouldBlur || (adaptive && isApple)) {
-      return Stack(
-        fit: StackFit.passthrough,
-        children: [
-          Positioned.fill(
-            child: LLProgressBorder(
-              child: child,
+      return DefaultTextStyle.merge(
+        style: TextStyle(color: LLColors.white),
+        child: Stack(
+          fit: StackFit.passthrough,
+          children: [
+            Positioned.fill(
+              child: LLProgressBorder(),
             ),
-          ),
-          _FadeInAnimation(
-            child: Padding(
-              padding: innerPadding,
-              child: ClipRRect(
-                child: BackdropFilter(
-                  filter: blurStyle!,
-                  child: ColoredBox(
-                    color: color.withValues(alpha: adaptive && isApple ? 0.5 : null),
-                    child: child,
+            _FadeInAnimation(
+              child: Padding(
+                padding: innerPadding,
+                child: ClipRRect(
+                  child: BackdropFilter(
+                    filter: blurStyle!,
+                    child: ColoredBox(
+                      color: color.withValues(alpha: adaptive && isApple ? 0.5 : null),
+                      child: child,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
     }
-    return LLProgressBorder(
-      child: _FadeInAnimation(
-        child: Padding(
-          padding: innerPadding,
-          child: ColoredBox(
-            color: color,
-            child: paddedChild,
+    return DefaultTextStyle.merge(
+      style: TextStyle(color: LLColors.white),
+      child: LLProgressBorder(
+        child: _FadeInAnimation(
+          child: Padding(
+            padding: innerPadding,
+            child: ColoredBox(
+              color: color,
+              child: paddedChild,
+            ),
           ),
         ),
       ),

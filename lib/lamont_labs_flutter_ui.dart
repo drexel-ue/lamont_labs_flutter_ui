@@ -1,5 +1,6 @@
 library;
 
+export 'src/widgets/button.dart';
 export 'src/widgets/container.dart';
 export 'src/widgets/countdown_timer.dart';
 export 'src/widgets/header.dart';
