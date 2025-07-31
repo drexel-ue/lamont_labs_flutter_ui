@@ -48,7 +48,7 @@ class LLHeader extends StatelessWidget {
           data: LLTheme.iconTheme,
           child: Row(
             children: [
-              if (Navigator.canPop(context) || onBackButtonPressed != null) //
+              if (Navigator.canPop(context) || onBackButtonPressed != null) ...[
                 InkWell(
                   onTap: onBackButtonPressed ?? () => Navigator.pop(context),
                   child: SizedBox.square(
@@ -62,7 +62,8 @@ class LLHeader extends StatelessWidget {
                     ),
                   ),
                 ),
-              horizontalMargin8,
+                horizontalMargin8,
+              ],
               Expanded(
                 child: DefaultTextStyle.merge(
                   style:
