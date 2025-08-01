@@ -51,9 +51,12 @@ class LLButton extends StatelessWidget {
       onTap: onTap,
       onLongPress: onLongPress,
       child: Center(
-        child: Padding(
-          padding: allPadding8,
-          child: child,
+        child: DefaultTextStyle(
+          style: LLTheme.textTheme.labelLarge!,
+          child: Padding(
+            padding: allPadding8,
+            child: child,
+          ),
         ),
       ),
     );
