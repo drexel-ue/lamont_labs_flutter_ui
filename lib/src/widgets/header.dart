@@ -67,11 +67,7 @@ class LLHeader extends StatelessWidget {
               ],
               Expanded(
                 child: DefaultTextStyle.merge(
-                  style:
-                      GoogleFonts //
-                          .oxaniumTextTheme()
-                          .titleLarge!
-                          .copyWith(color: LLColors.white),
+                  style: LLTheme.textTheme.titleLarge,
                   child: title,
                 ),
               ),
