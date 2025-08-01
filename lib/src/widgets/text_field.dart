@@ -15,6 +15,7 @@ class LLTextField extends StatelessWidget {
     this.maxLength,
     this.error,
     this.errorText,
+    this.suffixIcon,
     this.onChanged,
     this.onSubmitted,
   });
@@ -29,6 +30,7 @@ class LLTextField extends StatelessWidget {
   final int? maxLength;
   final Widget? error;
   final String? errorText;
+  final Widget? suffixIcon;
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
 
@@ -91,6 +93,17 @@ class LLTextField extends StatelessWidget {
           ),
           counterStyle: GoogleFonts.oxanium(
             color: LLColors.white.withValues(alpha: enabled ? 1.0 : 0.5),
+          ),
+          suffixIcon: suffixIcon != null
+              ? Padding(
+                  padding: rightPadding8,
+                  child: suffixIcon,
+                )
+              : null,
+          suffixIconColor: LLColors.white,
+          suffixIconConstraints: BoxConstraints(
+            maxWidth: 24.0 + 8.0,
+            maxHeight: 24.0,
           ),
         ),
         onChanged: onChanged,

@@ -18,6 +18,9 @@ Widget buildLLButtonUseCase(BuildContext context) {
           hintText: context.knobs.string(label: 'Hint text'),
           maxLength: context.knobs.intOrNull.input(label: 'Max length'),
           maxLines: context.knobs.intOrNull.input(label: 'Max lines'),
+          suffixIcon: context.knobs.boolean(label: 'With suffix icon', initialValue: false)
+              ? Icon(Icons.close)
+              : null,
         ),
       ),
     ),
