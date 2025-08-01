@@ -49,6 +49,7 @@ class LLHeader extends StatelessWidget {
           child: Row(
             children: [
               if (Navigator.canPop(context) || onBackButtonPressed != null) ...[
+
                 InkWell(
                   onTap: onBackButtonPressed ?? () => Navigator.pop(context),
                   child: SizedBox.square(

@@ -11,15 +11,23 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:widgetbook/widgetbook.dart' as _i1;
-import 'package:widgetbook_workspace/src/widgets/button.dart' as _i2;
-import 'package:widgetbook_workspace/src/widgets/container.dart' as _i3;
-import 'package:widgetbook_workspace/src/widgets/countdown_timer.dart' as _i4;
-import 'package:widgetbook_workspace/src/widgets/header.dart' as _i5;
-import 'package:widgetbook_workspace/src/widgets/progress_border.dart' as _i6;
-import 'package:widgetbook_workspace/src/widgets/scramble_text.dart' as _i7;
-import 'package:widgetbook_workspace/src/widgets/text_field.dart' as _i8;
+import 'package:widgetbook_workspace/src/widgets/button.dart' as _i3;
+import 'package:widgetbook_workspace/src/widgets/container.dart' as _i4;
+import 'package:widgetbook_workspace/src/widgets/countdown_timer.dart' as _i5;
+import 'package:widgetbook_workspace/src/widgets/header.dart' as _i6;
+import 'package:widgetbook_workspace/src/widgets/progress_border.dart' as _i7;
+import 'package:widgetbook_workspace/src/widgets/scramble_text.dart' as _i8;
+import 'package:widgetbook_workspace/src/widgets/text_field.dart' as _i9;
+import 'package:widgetbook_workspace/src/widgets/typography.dart' as _i2;
 
 final directories = <_i1.WidgetbookNode>[
+  _i1.WidgetbookLeafComponent(
+    name: 'LLTheme',
+    useCase: _i1.WidgetbookUseCase(
+      name: 'Default',
+      builder: _i2.buildLLTypography,
+    ),
+  ),
   _i1.WidgetbookFolder(
     name: 'widgets',
     children: [
@@ -28,15 +36,15 @@ final directories = <_i1.WidgetbookNode>[
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'Adaptive',
-            builder: _i2.buildAdaptiveLLButtonUseCase,
+            builder: _i3.buildAdaptiveLLButtonUseCase,
           ),
           _i1.WidgetbookUseCase(
             name: 'Default',
-            builder: _i2.buildLLButtonUseCase,
+            builder: _i3.buildLLButtonUseCase,
           ),
           _i1.WidgetbookUseCase(
             name: 'Glass',
-            builder: _i2.buildGlassLLButtonUseCase,
+            builder: _i3.buildGlassLLButtonUseCase,
           ),
         ],
       ),
@@ -45,15 +53,15 @@ final directories = <_i1.WidgetbookNode>[
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'Adaptive',
-            builder: _i3.buildAdaptiveLLContainerUseCase,
+            builder: _i4.buildAdaptiveLLContainerUseCase,
           ),
           _i1.WidgetbookUseCase(
             name: 'Default',
-            builder: _i3.buildLLContainerUseCase,
+            builder: _i4.buildLLContainerUseCase,
           ),
           _i1.WidgetbookUseCase(
             name: 'Glass',
-            builder: _i3.buildGlassLLContainerUseCase,
+            builder: _i4.buildGlassLLContainerUseCase,
           ),
         ],
       ),
@@ -61,7 +69,7 @@ final directories = <_i1.WidgetbookNode>[
         name: 'LLCountdownTimer',
         useCase: _i1.WidgetbookUseCase(
           name: 'Default',
-          builder: _i4.buildLLCountdownTimerUseCase,
+          builder: _i5.buildLLCountdownTimerUseCase,
         ),
       ),
       _i1.WidgetbookComponent(
@@ -69,11 +77,11 @@ final directories = <_i1.WidgetbookNode>[
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'Default',
-            builder: _i5.buildLLHeaderUseCase,
+            builder: _i6.buildLLHeaderUseCase,
           ),
           _i1.WidgetbookUseCase(
             name: 'Sliver',
-            builder: _i5.buildSliverLLHeaderUseCase,
+            builder: _i6.buildSliverLLHeaderUseCase,
           ),
         ],
       ),
@@ -82,11 +90,11 @@ final directories = <_i1.WidgetbookNode>[
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'Default',
-            builder: _i6.buildLLProgressBorderUseCase,
+            builder: _i7.buildLLProgressBorderUseCase,
           ),
           _i1.WidgetbookUseCase(
             name: 'Static Progress',
-            builder: _i6.buildStaticLLProgressBorderUseCase,
+            builder: _i7.buildStaticLLProgressBorderUseCase,
           ),
         ],
       ),
@@ -94,14 +102,14 @@ final directories = <_i1.WidgetbookNode>[
         name: 'LLScrambleText',
         useCase: _i1.WidgetbookUseCase(
           name: 'Default',
-          builder: _i7.buildLLScramleTextUseCase,
+          builder: _i8.buildLLScramleTextUseCase,
         ),
       ),
       _i1.WidgetbookLeafComponent(
         name: 'LLTextField',
         useCase: _i1.WidgetbookUseCase(
           name: 'Default',
-          builder: _i8.buildLLButtonUseCase,
+          builder: _i9.buildLLButtonUseCase,
         ),
       ),
     ],
