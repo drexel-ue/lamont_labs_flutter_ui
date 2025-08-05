@@ -16,6 +16,7 @@ class LLTextField extends StatelessWidget {
     this.error,
     this.errorText,
     this.suffixIcon,
+    this.validator,
     this.onChanged,
     this.onSubmitted,
   });
@@ -31,6 +32,7 @@ class LLTextField extends StatelessWidget {
   final Widget? error;
   final String? errorText;
   final Widget? suffixIcon;
+  final FormFieldValidator<String>? validator;
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
 
@@ -49,7 +51,7 @@ class LLTextField extends StatelessWidget {
         selectionHandleColor: LLColors.white,
         cursorColor: LLColors.white,
       ),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         focusNode: node,
         enabled: enabled,
@@ -107,7 +109,8 @@ class LLTextField extends StatelessWidget {
           ),
         ),
         onChanged: onChanged,
-        onSubmitted: onSubmitted,
+        onFieldSubmitted: onSubmitted,
+        validator: validator,
       ),
     );
   }
