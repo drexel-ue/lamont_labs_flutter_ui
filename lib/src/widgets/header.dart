@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lamont_labs_flutter_ui/lamont_labs_flutter_ui.dart';
 
 class LLHeader extends StatelessWidget {
@@ -49,7 +48,6 @@ class LLHeader extends StatelessWidget {
           child: Row(
             children: [
               if (Navigator.canPop(context) || onBackButtonPressed != null) ...[
-
                 InkWell(
                   onTap: onBackButtonPressed ?? () => Navigator.pop(context),
                   child: SizedBox.square(
@@ -68,6 +66,8 @@ class LLHeader extends StatelessWidget {
               Expanded(
                 child: DefaultTextStyle.merge(
                   style: LLTheme.textTheme.titleLarge,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   child: title,
                 ),
               ),
