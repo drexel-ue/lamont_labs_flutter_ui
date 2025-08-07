@@ -3,6 +3,7 @@ library;
 export 'src/widgets/button.dart';
 export 'src/widgets/container.dart';
 export 'src/widgets/countdown_timer.dart';
+export 'src/widgets/dropdown_button.dart';
 export 'src/widgets/header.dart';
 export 'src/widgets/progress_border.dart';
 export 'src/widgets/scramble_text.dart';
